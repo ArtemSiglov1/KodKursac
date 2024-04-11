@@ -30,7 +30,7 @@ namespace Kursac
         }
         public override string ToString()
         {
-            return $"Id-{Id}\nNom-{Nom}\nStart-{Start}\nEnd-{End}\nTime Start-{Timestart}\nTime";
+            return $"Id-{Id}\nNom-{Nom}\nStart-{Start}\nEnd-{End}\nTime Start-{GetTime1()}\nTimeEnd-{GetTime2()}\nGosnom-{GosNom}\n";
         }
       
         public string GosNomer(List<Bus> buses)
@@ -38,6 +38,22 @@ namespace Kursac
             foreach(var elem in buses)
             {
                 return elem.GosNom;
+            }
+            return null;
+        }
+        private string GetTime1()
+        {
+            foreach(var elem in Timestart)
+            {
+                return elem.ToLongTimeString();
+            }
+            return null;
+        }
+        private string GetTime2()
+        {
+            foreach(var elem in Timeend)
+            {
+                return elem.ToLongTimeString();
             }
             return null;
         }

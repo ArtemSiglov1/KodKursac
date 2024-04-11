@@ -22,7 +22,7 @@ namespace Kursac
             return new FullName(firstName, lastName, middleName);
 
         }
-        public static Voditeli InitVoditel()
+        public  Voditeli InitVoditel()
         {
             try
             {
@@ -37,12 +37,20 @@ namespace Kursac
                 Console.WriteLine("Route:");
                 int route = int.Parse(Console.ReadLine());
                 Console.WriteLine("Schedule:");
-                int schedule = int.Parse(Console.ReadLine());
-                return new Voditeli(id, fullName, exp, expLevel, route, schedule);
+                int daystart = int.Parse(Console.ReadLine());
+                Console.WriteLine("Сколько дней работает водитель?");
+                int dayJob = int.Parse(Console.ReadLine());
+                DayOfWeek[] schedule = new DayOfWeek[dayJob];
+                
+                for (int i = 0; i < schedule.Length; i++) {
+                    schedule[i]= DateTime.FromOADate(daystart+i).DayOfWeek;
+                }
+                
+                return new Voditeli(id, fullName, exp, expLevel, route, schedule,dayJob);
             }
             catch { return InitVoditel(); }
         }
-        public Route InitRoute()
+        public  Route InitRoute()
         {
             Console.WriteLine("Id:");
             int id = int.Parse(Console.ReadLine());
@@ -52,11 +60,7 @@ namespace Kursac
             string start = Console.ReadLine();
             Console.WriteLine("End:");
             string end = Console.ReadLine();
-            for (int i = 0; i <= 5; i++)
-            Console.WriteLine("Time Start:");
-            DateTime[] timeStart = DateTime.Parse(Console.ReadLine());
-            Console.WriteLine("Time End:");
-            DateTime[] timeEnd = DateTime.Parse(Console.ReadLine());
+           
             Console.WriteLine("Какой автобус закрепить за маршрутом");
             foreach (var elem in buses)
             {

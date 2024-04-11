@@ -14,9 +14,10 @@ namespace Kursac
         public int ExperienceLevel { get; set; }
         public double Salary { get; set; }
         public int Route { get; set; }
-        public int Schedule { get; set; }
+        public DayOfWeek[] Schedule { get; set; }
+        public int DayJob {  get; set; }
         public Voditeli() { }
-        public Voditeli(int id, FullName fullName, double experience, int experienceLevel, int route, int schedule)
+        public Voditeli(int id, FullName fullName, double experience, int experienceLevel, int route, DayOfWeek[] schedule,int dayJob)
         {
             Id = id;
             FullName = ValidateFullName(fullName);
@@ -25,8 +26,12 @@ namespace Kursac
             Salary = Salary1();
             Route = route;
             Schedule = schedule;
+            DayJob = dayJob;
         }
-        
+        private string Day()
+        {             
+                 return $"{Schedule[0]}-{Schedule[0] + (DayJob - 1)}";
+        }
         private FullName ValidateFullName(FullName fullName)
         {
             try
@@ -38,8 +43,6 @@ namespace Kursac
                 }
             }
             catch { Console.WriteLine(new ArgumentException("Имя и фамилия не могут быть пустыми")); fullName = Pattern.InitFullName(); }
-
-
             try
             {
                 foreach (char c in fullName.FirstName + fullName.LastName + fullName.MiddleName)
@@ -52,9 +55,7 @@ namespace Kursac
             }
             catch { Console.WriteLine(new ArgumentException("буквы только русской расскладки")); fullName = Pattern.InitFullName(); }
             return fullName;
-
         }
-
         int Salary1()
         {
             if (Experience < 5 || ExperienceLevel == 3)
@@ -74,7 +75,7 @@ namespace Kursac
 
         public override string ToString()
         {
-            return $"Id-{Id}\nFIO:\n{FullName.ToString()}\nСтаж-{Experience}\nКласс-{ExperienceLevel}\nДоход-{Salary}\nМаршрут-{Route}\nГрафик-{Schedule}";
+            return $"Id-{Id}\nFIO:\n{FullName.ToString()}\nСтаж-{Experience}\nКласс-{ExperienceLevel}\nДоход-{Salary}\nМаршрут-{Route}\nГрафик-{Day()}";
         }
     }
 }

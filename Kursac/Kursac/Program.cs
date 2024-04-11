@@ -11,12 +11,15 @@ using System.Threading.Tasks;
         {
             static  void Main(string[] args)
             {
-            
-                
-                Voditeli voditeli = new Voditeli(23, new FullName("", "Артем", null), 8, 2, 1, 12);
-                Console.WriteLine(voditeli.ToString());
+               Pattern pattern=new Pattern();
+            Voditeli voditeli=pattern.InitVoditel();
 
-                Console.Read();
+           // Voditeli voditeli = new Voditeli(23, new FullName("", "Артем", null), 8, 2, 1, new DateTime[5] { });
+            Console.WriteLine(voditeli.ToString());
+            
+            //Route route=pattern.InitRoute();
+            //Console.WriteLine(route.ToString());
+            Console.Read();
             }
         }
    }
