@@ -50,7 +50,7 @@ namespace Kursac
             }
             catch { return InitVoditel(); }
         }
-        public  Route InitRoute()
+        public Route InitRoute()
         {
             Console.WriteLine("Id:");
             int id = int.Parse(Console.ReadLine());
@@ -60,7 +60,10 @@ namespace Kursac
             string start = Console.ReadLine();
             Console.WriteLine("End:");
             string end = Console.ReadLine();
-           
+            Console.WriteLine("Time Start:");
+            DateTime timeStart = DateTime.Parse(Console.ReadLine());
+            Console.WriteLine("Time End:");
+            DateTime timeEnd = DateTime.Parse(Console.ReadLine());
             Console.WriteLine("Какой автобус закрепить за маршрутом");
             foreach (var elem in buses)
             {
@@ -79,7 +82,68 @@ namespace Kursac
             int voditelId =voditelis[index-1].Id ;
             return new Route(id, nom, start, end, timeStart, timeEnd, gosNom, voditelId);
         }
-
-
+        public Bus InitBus()
+        {
+            Console.WriteLine("Id:");
+            int id = int.Parse(Console.ReadLine());
+            Console.WriteLine("Nom:");
+            string gosnom = Console.ReadLine();
+            Console.WriteLine("Start:");
+            string tip = Console.ReadLine();
+            Console.WriteLine("End:");
+            int volume = int.Parse(Console.ReadLine());
+            Console.WriteLine("Time Start:");
+            bool ispraven=bool.Parse(Console.ReadLine());
+            return new Bus(id,gosnom,tip,volume,ispraven);
+        }
+        public string RouteVoditel()
+        {
+            foreach (var item in routes)
+            {
+                Console.WriteLine("Маршрут-"+item.Nom);
+            }
+            Console.WriteLine("Водители какого маршрута вас интересуют?");
+            int nom = int.Parse(Console.ReadLine());
+            foreach (var route in voditelis)
+            {
+                if (route.Route == nom) { return route.ToString(); } 
+            }
+                return null;
+        }
+        public string RouteBus()
+        {
+            foreach (var item in routes)
+            {
+                Console.WriteLine("Маршрут-" + item.Nom);
+            }
+            Console.WriteLine("Водители какого маршрута вас интересуют?");
+            int nom = int.Parse(Console.ReadLine());
+            foreach (var route in routes)
+            {
+                if (route.Nom == nom) 
+                { 
+                    foreach (var item in buses)
+                    {
+                        if (route.GosNom == item.GosNom)
+                        {
+                            Console.WriteLine(item.GosNom);
+                        }
+                    }
+                }
+            }
+            return null;
+        }
+        public TimeSpan Lenght()
+        {
+            TimeSpan time;
+            foreach (var item in routes)
+            {
+              time= item.Timeend - item.Timeend;
+            }
+             time=TimeSpan.MaxValue;
+             time=TimeSpan.MinValue;
+            return 
+        }
+        
     }
 }

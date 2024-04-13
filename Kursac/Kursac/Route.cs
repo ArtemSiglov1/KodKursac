@@ -12,50 +12,29 @@ namespace Kursac
         public int Nom { get; set; }
         public string Start { get; set; }
         public string End { get; set; }
-        public DateTime[] Timestart { get; set; }
-        public DateTime[] Timeend { get; set; }
+        public DateTime TimeStart { get; set; }
+        public DateTime Timeend { get; set; }
         public string GosNom { get; set; }
         public int VoditelId { get; set; }
         public Route() { }
-        public Route(int id, int nom, string start, string end, DateTime[] timestart, DateTime[] timeend, string gosNom, int voditelId)
+        public Route(int id, int nom, string start, string end, DateTime timestart, DateTime timeend, string gosNom, int voditelId)
         {
             Id = id;
             Nom = nom;
             Start = start;
             End = end;
-            Timestart = timestart;
+            TimeStart = timestart;
             Timeend = timeend;
             GosNom = gosNom;
             VoditelId = voditelId;
         }
         public override string ToString()
         {
-            return $"Id-{Id}\nNom-{Nom}\nStart-{Start}\nEnd-{End}\nTime Start-{GetTime1()}\nTimeEnd-{GetTime2()}\nGosnom-{GosNom}\n";
+            return $"Id-{Id}\nNom-{Nom}\nStart-{Start}\nEnd-{End}\nTime Start-{TimeStart}\nTimeEnd-{Timeend}\nGosnom-{GosNom}\nVoditel Id-{VoditelId}";
         }
       
-        public string GosNomer(List<Bus> buses)
-        {
-            foreach(var elem in buses)
-            {
-                return elem.GosNom;
-            }
-            return null;
-        }
-        private string GetTime1()
-        {
-            foreach(var elem in Timestart)
-            {
-                return elem.ToLongTimeString();
-            }
-            return null;
-        }
-        private string GetTime2()
-        {
-            foreach(var elem in Timeend)
-            {
-                return elem.ToLongTimeString();
-            }
-            return null;
-        }
+       
+       
+       
     }
 }
