@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Kursac
 {
+    [Serializable]
     public class FullName
     {
         /// <summary>
@@ -32,7 +33,6 @@ namespace Kursac
         /// Может быть отчеством
         /// </summary>
         public string MiddleName { get; set; } = null;
-       
         public override string ToString()
         {
             return $"First Name-{FirstName}\nLast Name-{LastName}\nMidle Name-{MiddleName}";

@@ -44,10 +44,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Busik\Bus.cs" />
-    <Compile Include="Pattern.cs" />
-    <Compile Include="Route.cs" />
+    <Compile Include="MainClasses\Pattern.cs" />
+    <Compile Include="Route\Route.cs" />
     <Compile Include="Voditel\FullName.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="MainClasses\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Voditel\Voditeli.cs" />
   </ItemGroup>
