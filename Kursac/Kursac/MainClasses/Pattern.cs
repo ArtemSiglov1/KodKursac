@@ -12,12 +12,34 @@ namespace Kursac
 {
     public class Pattern
     {
+        /// <summary>
+        /// лист объектов класса водители
+        /// </summary>
         List<Voditeli> voditelis = new List<Voditeli>();
+        /// <summary>
+        /// лист объектов класса маршрут
+        /// </summary>
         List<Route> routes = new List<Route>();
+        /// <summary>
+        /// лист объектов класса автобус
+        /// </summary>
         List<Bus> buses = new List<Bus>();
+        /// <summary>
+        /// путь к файлу в котором записана инфа о водителях
+        /// </summary>
         string voditeliPath = @"C:\Users\Home\source\repos\Kursac\Kursac\Voditeli.txt";
+        /// <summary>
+        /// путь к файлу в котором записана инфа о маршрутах
+        /// </summary>
         string routePath = @"C:\Users\Home\source\repos\Kursac\Kursac\Route.txt";
+        /// <summary>
+        /// путь к файлу в котором записана инфа об Автобусах
+        /// </summary>
         string busPath = @"C:\Users\Home\source\repos\Kursac\Kursac\Bus.txt";
+        /// <summary>
+        /// метод для создания экземпляра класса полного имени
+        /// </summary>
+        /// <returns></returns>
         public static FullName InitFullName()
         {
             Console.WriteLine("Фамилия:");
@@ -29,6 +51,9 @@ namespace Kursac
             return new FullName(firstName, lastName, middleName);
 
         }
+        /// <summary>
+        /// метод для создания экземпляра класса водители
+        /// </summary>
         public void InitVoditel()
         {
             try
@@ -60,6 +85,9 @@ namespace Kursac
             }
             catch { InitVoditel(); }
         }
+        /// <summary>
+        /// метод для создания экземпляра класса маршрут
+        /// </summary>
         public void InitRoute()
         {
             try
@@ -102,6 +130,9 @@ namespace Kursac
             }
             catch { InitRoute(); }
         }
+        /// <summary>
+        /// метод для создания экземпляра класса автобус
+        /// </summary>
         public void InitBus()
         {
             try
@@ -122,6 +153,9 @@ namespace Kursac
             }
             catch { InitBus(); }
         }
+        /// <summary>
+        /// метод для вывода информации о водителе работающем на определенном маршруте
+        /// </summary>
         public void GetRouteVoditel()
         {
             LoadVoditeli(voditeliPath);
@@ -132,12 +166,15 @@ namespace Kursac
             }
             Console.WriteLine("Введите номер маршрута, чтобы узнать информацию о водителях:");
             int nom = int.Parse(Console.ReadLine());
-            foreach (var route in voditelis)
+            foreach (var driver in voditelis)
             {
-                if (route.Route == nom) { Console.WriteLine( route.ToString()); }
+                if (driver.Route == nom) { Console.WriteLine( driver.ToString()); }
             }
            
         }
+        /// <summary>
+        /// метод для вывода информации о автобусе работающем на определенном маршруте
+        /// </summary>
         public void GetRouteBus()
         {
             LoadBuses(busPath);
@@ -164,6 +201,9 @@ namespace Kursac
             }
            
         }
+        /// <summary>
+        /// расчет максимальной и минимальной протяженности маршрута в минутах
+        /// </summary>
         public void CalculateRouteLength()
         {
             LoadRoutes(routePath);
@@ -182,6 +222,10 @@ namespace Kursac
 
 
         }
+        /// <summary>
+        /// метод для вывода информации о маршруте на котором работает водитель с максимальным стажем
+        /// </summary>
+        /// <returns></returns>
         public Route GetRouteMaxExp()
         {
             LoadVoditeli(voditeliPath);
@@ -202,6 +246,10 @@ namespace Kursac
             }
             return null;
         }
+        /// <summary>
+        /// рассчет общей протяженности маршрута в минутах
+        /// </summary>
+        /// <returns></returns>
         public int AllRouteLenght()
         {
             LoadRoutes(routePath);
@@ -214,6 +262,9 @@ namespace Kursac
             }
             return allLenght;
         }
+        /// <summary>
+        /// выводит информацию о водителях не вышедших на работу из-за неисправности автобуса
+        /// </summary>
         public void VoditelNoJobBusFailure()
         {
             LoadVoditeli(voditeliPath);
@@ -239,6 +290,9 @@ namespace Kursac
                 }
             }
         }
+        /// <summary>
+        /// удаляет заданного водителя
+        /// </summary>
         public void DeleteVoditel()
         {
             try
@@ -258,13 +312,18 @@ namespace Kursac
                         voditeli=driver;
                     }
                 }
+                voditelis.Remove(voditeli);
                 SaveVoditeli(voditeliPath);
             }
             catch { }
         }
+        /// <summary>
+        /// удаляет заданый автобус
+        /// </summary>
         public void DeleteBus()
         {
             LoadBuses(busPath);
+            Bus bus1 = null;
             foreach (var bus in buses)
             {
                 Console.WriteLine(bus.Id);
@@ -274,14 +333,19 @@ namespace Kursac
             {
                 if (id == bus.Id)
                 {
-                    buses.Remove(bus);
+                    bus1=bus;
                 }
             }
+            buses.Remove(bus1);
             SaveBuses(busPath);
         }
+        /// <summary>
+        /// удаляет заданный маршрут
+        /// </summary>
         public void DeleteRoute()
         {
             LoadRoutes(routePath);
+            Route route1 = null;
             foreach (var route in routes)
             {
                 Console.WriteLine(route.Id);
@@ -291,11 +355,15 @@ namespace Kursac
             {
                 if (id == route.Id)
                 {
-                    routes.Remove(route);
+                    route1=route;
                 }
             }
+            routes.Remove(route1);
             SaveRoutes(routePath);
         }
+        /// <summary>
+        /// вывод информации о всех водителях
+        /// </summary>
         public void OutPutVoditeli()
         {
             LoadVoditeli(voditeliPath);
@@ -305,6 +373,9 @@ namespace Kursac
             }
             
         }
+        /// <summary>
+        /// вывод информации о всех автобусах
+        /// </summary>
         public void OutPutBus()
         {
             LoadBuses(busPath);
@@ -313,6 +384,9 @@ namespace Kursac
                 Console.WriteLine( bus.ToString());
             }
         }
+        /// <summary>
+        /// вывод информации о всех маршрутах
+        /// </summary>
         public void OutPutRoute()
         {
             LoadRoutes(routePath);
@@ -321,7 +395,10 @@ namespace Kursac
                 Console.WriteLine( route.ToString());
             }
         }
-        // Методы сохранения и загрузки для класса Voditeli
+        /// <summary>
+        /// метод для сохранения листа водителей
+        /// </summary>
+        /// <param name="fileName">путь к файлу</param>
         public void SaveVoditeli(string fileName)
         {
             BinaryFormatter formatter = new BinaryFormatter();
@@ -330,7 +407,10 @@ namespace Kursac
                 formatter.Serialize(fs, voditelis);
             }
         }
-
+        /// <summary>
+        /// метод для загрузки из файла в лист водители
+        /// </summary>
+        /// <param name="fileName">путь к файлу</param>
         public void LoadVoditeli(string fileName)
         {
             BinaryFormatter formatter = new BinaryFormatter();
@@ -340,7 +420,10 @@ namespace Kursac
             }
         }
 
-        // Методы сохранения и загрузки для класса Route
+        /// <summary>
+        /// метод для сохранения листа маршрута
+        /// </summary>
+        /// <param name="fileName">путь к файлу</param>
         public void SaveRoutes(string fileName)
         {
             BinaryFormatter formatter = new BinaryFormatter();
@@ -349,7 +432,10 @@ namespace Kursac
                 formatter.Serialize(fs, routes);
             }
         }
-
+        /// <summary>
+        /// метод для загрузки из файла в лист маршрут
+        /// </summary>
+        /// <param name="fileName">путь к файлу</param>
         public void LoadRoutes(string fileName)
         {
             BinaryFormatter formatter = new BinaryFormatter();
@@ -358,8 +444,10 @@ namespace Kursac
                     routes = (List<Route>)formatter.Deserialize(fs);
             }
         }
-
-        // Методы сохранения и загрузки для класса Bus
+        /// <summary>
+        /// метод для сохранения листа автобусы
+        /// </summary>
+        /// <param name="fileName">путь к файлу</param>
         public void SaveBuses(string fileName)
         {
             BinaryFormatter formatter = new BinaryFormatter();
@@ -368,7 +456,10 @@ namespace Kursac
                 formatter.Serialize(fs, buses);
             }
         }
-
+        /// <summary>
+        /// метод для загрузки из файла в лист автобусы
+        /// </summary>
+        /// <param name="fileName">путь к файлу</param>
         public void LoadBuses(string fileName)
         {
             BinaryFormatter formatter = new BinaryFormatter();
