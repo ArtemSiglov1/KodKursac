@@ -27,15 +27,16 @@ namespace Kursac
         /// <summary>
         /// путь к файлу в котором записана инфа о водителях
         /// </summary>
-        string voditeliPath = @"C:\Users\Home\source\repos\Kursac\Kursac\Voditeli.txt";
+        string voditeliPath = @"C:\Users\kab31\OneDrive\Рабочий стол\KodKursac-main\Kursac\Kursac\Voditeli.txt";
+            //@"C:\Users\Home\source\repos\Kursac\Kursac
         /// <summary>
         /// путь к файлу в котором записана инфа о маршрутах
         /// </summary>
-        string routePath = @"C:\Users\Home\source\repos\Kursac\Kursac\Route.txt";
+        string routePath = @"C:\Users\kab31\OneDrive\Рабочий стол\KodKursac-main\Kursac\Kursac\Route.txt";
         /// <summary>
         /// путь к файлу в котором записана инфа об Автобусах
         /// </summary>
-        string busPath = @"C:\Users\Home\source\repos\Kursac\Kursac\Bus.txt";
+        string busPath = @"C:\Users\kab31\OneDrive\Рабочий стол\KodKursac-main\Kursac\Kursac\Bus.txt";
         /// <summary>
         /// метод для создания экземпляра класса полного имени
         /// </summary>
