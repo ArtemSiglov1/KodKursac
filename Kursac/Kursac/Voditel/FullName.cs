@@ -35,7 +35,7 @@ namespace Kursac
         public string MiddleName { get; set; } = null;
         public override string ToString()
         {
-            return $"First Name-{FirstName} Last Name-{LastName} Midle Name-{MiddleName}";
+            return $"{FirstName} {LastName} {MiddleName}";
         }
     }
 }

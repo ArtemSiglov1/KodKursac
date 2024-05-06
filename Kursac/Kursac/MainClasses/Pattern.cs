@@ -27,17 +27,17 @@ namespace Kursac
         /// <summary>
         /// путь к файлу в котором записана инфа о водителях
         /// </summary>
-        string voditeliPath = @"C:\Users\kab31\OneDrive\Рабочий стол\KodKursac-main\Kursac\Kursac\Voditeli.txt";
-            //@"C:\Users\Home\source\repos\Kursac\Kursac
+        DirectoryInfo DirectoryInfoVoditeli = new DirectoryInfo("Voditeli.bin");
         /// <summary>
         /// путь к файлу в котором записана инфа о маршрутах
         /// </summary>
-        string routePath = @"C:\Users\kab31\OneDrive\Рабочий стол\KodKursac-main\Kursac\Kursac\Route.txt";
+        DirectoryInfo DirectoryInfoRoute = new DirectoryInfo("Route.bin");
+
         /// <summary>
         /// путь к файлу в котором записана инфа об Автобусах
         /// </summary>
-        string busPath = @"C:\Users\kab31\OneDrive\Рабочий стол\KodKursac-main\Kursac\Kursac\Bus.txt";
         /// <summary>
+        DirectoryInfo DirectoryInfoBus = new DirectoryInfo("Bus.bin");
         /// метод для создания экземпляра класса полного имени
         /// </summary>
         /// <returns></returns>
@@ -59,7 +59,7 @@ namespace Kursac
         {
             try
             {
-                LoadVoditeli(voditeliPath);
+                LoadVoditeli(DirectoryInfoVoditeli.FullName);
                 Console.WriteLine("Id:");
                 int id = int.Parse(Console.ReadLine());
                 Console.WriteLine("Полное имя:");
@@ -82,7 +82,7 @@ namespace Kursac
                 }
 
                 voditelis.Add(new Voditeli(id, fullName, exp, expLevel, route, schedule));
-                SaveVoditeli(voditeliPath);
+                SaveVoditeli(DirectoryInfoVoditeli.FullName);
             }
             catch { InitVoditel(); }
         }
@@ -93,8 +93,8 @@ namespace Kursac
         {
             try
             {
-                LoadBuses(busPath);
-                LoadVoditeli(voditeliPath);
+                LoadBuses(DirectoryInfoBus.FullName);
+                LoadVoditeli(DirectoryInfoVoditeli.FullName);
                 Console.WriteLine("Id:");
                 int id = int.Parse(Console.ReadLine());
                 Console.WriteLine("Nom:");
@@ -127,7 +127,7 @@ namespace Kursac
                 int driverIndex = int.Parse(Console.ReadLine());
                 int voditelId = voditelis[driverIndex - 1].Id;
                 routes.Add(new Route(id, nom, start, end, timeStart, timeEnd, gosNom, voditelId));
-                SaveRoutes(routePath);
+                SaveRoutes(DirectoryInfoRoute.FullName);
             }
             catch { InitRoute(); }
         }
@@ -138,7 +138,7 @@ namespace Kursac
         {
             try
             {
-                LoadBuses(busPath);
+                LoadBuses(DirectoryInfoBus.FullName);
                 Console.WriteLine("Id:");
                 int id = int.Parse(Console.ReadLine());
                 Console.WriteLine("гос.Номер:");
@@ -150,7 +150,7 @@ namespace Kursac
                 Console.WriteLine("Исправен:");
                 bool ispraven = bool.Parse(Console.ReadLine());
                 buses.Add(new Bus(id, gosnom, tip, volume, ispraven));
-                SaveBuses(busPath);
+                SaveBuses(DirectoryInfoBus.FullName);
             }
             catch { InitBus(); }
         }
@@ -159,8 +159,8 @@ namespace Kursac
         /// </summary>
         public void GetRouteVoditel()
         {
-            LoadVoditeli(voditeliPath);
-            LoadRoutes(routePath);
+            LoadVoditeli(DirectoryInfoVoditeli.FullName);
+            LoadRoutes(DirectoryInfoRoute.FullName);
             foreach (var item in routes)
             {
                 Console.WriteLine("Маршрут-" + item.Nom);
@@ -178,8 +178,8 @@ namespace Kursac
         /// </summary>
         public void GetRouteBus()
         {
-            LoadBuses(busPath);
-            LoadRoutes(routePath);
+            LoadBuses(DirectoryInfoBus.FullName);
+            LoadRoutes(DirectoryInfoRoute.FullName);
             foreach (var item in routes)
             {
                 Console.WriteLine($"Маршрут-{item.Nom}");
@@ -207,7 +207,7 @@ namespace Kursac
         /// </summary>
         public void CalculateRouteLength()
         {
-            LoadRoutes(routePath);
+            LoadRoutes(DirectoryInfoRoute.FullName);
             int max = 0;
             int min = int.MaxValue;
             foreach (var item in routes)
@@ -229,8 +229,8 @@ namespace Kursac
         /// <returns></returns>
         public Route GetRouteMaxExp()
         {
-            LoadVoditeli(voditeliPath);
-            LoadRoutes(routePath);
+            LoadVoditeli(DirectoryInfoVoditeli.FullName);
+            LoadRoutes(DirectoryInfoRoute.FullName);
             Voditeli voditeli = null;
             double maxExp = 0;
             foreach (var driver in voditelis)
@@ -253,7 +253,7 @@ namespace Kursac
         /// <returns></returns>
         public int AllRouteLenght()
         {
-            LoadRoutes(routePath);
+            LoadRoutes(DirectoryInfoRoute.FullName);
             int allLenght = 0;
 
             foreach (var route in routes)
@@ -268,9 +268,9 @@ namespace Kursac
         /// </summary>
         public void VoditelNoJobBusFailure()
         {
-            LoadVoditeli(voditeliPath);
-            LoadRoutes(routePath);
-            LoadBuses(busPath);
+            LoadVoditeli(DirectoryInfoVoditeli.FullName);
+            LoadRoutes(DirectoryInfoRoute.FullName);
+            LoadBuses(DirectoryInfoBus.FullName);
             foreach (var bus in buses)
             {
                 if (bus.Ispraven == false)
@@ -299,7 +299,7 @@ namespace Kursac
             try
             {
 
-                LoadVoditeli(voditeliPath);
+                LoadVoditeli(DirectoryInfoVoditeli.FullName);
                 Voditeli voditeli = null;
                 foreach (var driver in voditelis)
                 {
@@ -314,7 +314,7 @@ namespace Kursac
                     }
                 }
                 voditelis.Remove(voditeli);
-                SaveVoditeli(voditeliPath);
+                SaveVoditeli(DirectoryInfoVoditeli.FullName);
             }
             catch { }
         }
@@ -323,7 +323,7 @@ namespace Kursac
         /// </summary>
         public void DeleteBus()
         {
-            LoadBuses(busPath);
+            LoadBuses(DirectoryInfoBus.FullName);
             Bus bus1 = null;
             foreach (var bus in buses)
             {
@@ -338,14 +338,14 @@ namespace Kursac
                 }
             }
             buses.Remove(bus1);
-            SaveBuses(busPath);
+            SaveBuses(DirectoryInfoBus.FullName);
         }
         /// <summary>
         /// удаляет заданный маршрут
         /// </summary>
         public void DeleteRoute()
         {
-            LoadRoutes(routePath);
+            LoadRoutes(DirectoryInfoRoute.FullName);
             Route route1 = null;
             foreach (var route in routes)
             {
@@ -360,14 +360,14 @@ namespace Kursac
                 }
             }
             routes.Remove(route1);
-            SaveRoutes(routePath);
+            SaveRoutes(DirectoryInfoRoute.FullName);
         }
         /// <summary>
         /// вывод информации о всех водителях
         /// </summary>
         public void OutPutVoditeli()
         {
-            LoadVoditeli(voditeliPath);
+            LoadVoditeli(DirectoryInfoVoditeli.FullName);
             foreach (var driver in voditelis)
             {
                 Console.WriteLine( driver.ToString());
@@ -379,7 +379,7 @@ namespace Kursac
         /// </summary>
         public void OutPutBus()
         {
-            LoadBuses(busPath);
+            LoadBuses(DirectoryInfoBus.FullName);
             foreach (var bus in buses)
             {
                 Console.WriteLine( bus.ToString());
@@ -390,7 +390,7 @@ namespace Kursac
         /// </summary>
         public void OutPutRoute()
         {
-            LoadRoutes(routePath);
+            LoadRoutes(DirectoryInfoRoute.FullName);
             foreach (var route in routes)
             {
                 Console.WriteLine( route.ToString());

@@ -12,3 +12,10 @@ C:\Users\kab31\OneDrive\Рабочий стол\KodKursac-main\Kursac\Kursac\obj
 C:\Users\kab31\OneDrive\Рабочий стол\KodKursac-main\Kursac\Kursac\obj\Debug\Kursac.csproj.CoreCompileInputs.cache
 C:\Users\kab31\OneDrive\Рабочий стол\KodKursac-main\Kursac\Kursac\obj\Debug\Kursac.exe
 C:\Users\kab31\OneDrive\Рабочий стол\KodKursac-main\Kursac\Kursac\obj\Debug\Kursac.pdb
+C:\Users\Home\Desktop\KodKursac-main\Kursac\Kursac\bin\Debug\Kursac.exe.config
+C:\Users\Home\Desktop\KodKursac-main\Kursac\Kursac\bin\Debug\Kursac.exe
+C:\Users\Home\Desktop\KodKursac-main\Kursac\Kursac\bin\Debug\Kursac.pdb
+C:\Users\Home\Desktop\KodKursac-main\Kursac\Kursac\obj\Debug\Kursac.csproj.AssemblyReference.cache
+C:\Users\Home\Desktop\KodKursac-main\Kursac\Kursac\obj\Debug\Kursac.csproj.CoreCompileInputs.cache
+C:\Users\Home\Desktop\KodKursac-main\Kursac\Kursac\obj\Debug\Kursac.exe
+C:\Users\Home\Desktop\KodKursac-main\Kursac\Kursac\obj\Debug\Kursac.pdb
