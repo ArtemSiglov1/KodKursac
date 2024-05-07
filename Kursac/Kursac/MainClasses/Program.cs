@@ -18,8 +18,8 @@ namespace Kursac
                 Pattern pattern = new Pattern();
                 string log = "Artem";
                 string pas = "215";
-                
-               
+
+                Console.WriteLine("Добро пожаловать!\nАвторизируйтесь в системе:");
                     Console.WriteLine("Введите логин");
                     string logInp = Console.ReadLine();
                     if (log == logInp)
@@ -96,18 +96,18 @@ namespace Kursac
                                                 switch (Console.ReadKey(true).KeyChar)
                                                 {
 
-                                                    case '1': Console.Clear(); pattern.GetRouteVoditel(); Console.Read(); break;
-                                                    case '2': Console.Clear(); pattern.GetRouteBus(); Console.Read(); break;
-                                                    case '3': Console.Clear(); pattern.CalculateRouteLength(); Console.Read(); break;
-                                                    case '4': Console.Clear(); Console.WriteLine(pattern.GetRouteMaxExp()); Console.Read(); break;
-                                                    case '5': Console.Clear(); Console.WriteLine($"Общая протяженность маршрутов: {pattern.AllRouteLenght()} минут"); Console.Read(); break;
-                                                    case '6': Console.Clear(); pattern.VoditelNoJobBusFailure(); Console.Read(); break;
-                                                    case '7': Console.Clear(); pattern.OutPutVoditeli(); Console.Read(); break;
-                                                    case '8': Console.Clear(); pattern.OutPutBus(); Console.Read(); break;
-                                                    case '9': Console.Clear(); pattern.OutPutRoute(); Console.Read(); break;
+                                                    case '1': Console.Clear(); pattern.GetRouteVoditel(); Console.WriteLine("Enter чтобы продолжить"); Console.Read(); break;
+                                                    case '2': Console.Clear(); pattern.GetRouteBus(); Console.WriteLine("Enter чтобы продолжить"); Console.Read(); break;
+                                                    case '3': Console.Clear(); pattern.CalculateRouteLength(); Console.WriteLine("Enter чтобы продолжить"); Console.Read(); break;
+                                                    case '4': Console.Clear(); Console.WriteLine(pattern.GetRouteMaxExp()); Console.WriteLine("Enter чтобы продолжить"); Console.Read(); break;
+                                                    case '5': Console.Clear(); Console.WriteLine($"Общая протяженность маршрутов: {pattern.AllRouteLenght()} минут"); Console.WriteLine("Enter чтобы продолжить"); ; Console.Read(); break;
+                                                    case '6': Console.Clear(); pattern.VoditelNoJobBusFailure(); Console.WriteLine("Enter чтобы продолжить"); Console.Read(); break;
+                                                    case '7': Console.Clear(); pattern.OutPutVoditeli(); Console.WriteLine("Enter чтобы продолжить"); Console.Read(); break;
+                                                    case '8': Console.Clear(); pattern.OutPutBus(); Console.WriteLine("Enter чтобы продолжить"); Console.Read(); break;
+                                                    case '9': Console.Clear(); pattern.OutPutRoute(); Console.WriteLine("Enter чтобы продолжить"); Console.Read(); break;
                                                     case '0': Console.Clear(); flag = false; break;
                                                     default:
-                                                        Console.WriteLine("Неверный выбор. Пожалуйста, выберите пункт меню от 0 до 9."); Console.ReadLine(); Console.Clear();
+                                                        Console.WriteLine("Неверный выбор. Пожалуйста, выберите пункт меню от 0 до 9."); Console.WriteLine("Enter чтобы продолжить"); Console.ReadLine();  Console.Clear();
                                                         break;
 
                                                 }
