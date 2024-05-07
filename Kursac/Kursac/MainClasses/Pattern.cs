@@ -24,20 +24,20 @@ namespace Kursac
         /// лист объектов класса автобус
         /// </summary>
         List<Bus> buses = new List<Bus>();
+        static string currentDirectory = Directory.GetCurrentDirectory();
         /// <summary>
         /// путь к файлу в котором записана инфа о водителях
         /// </summary>
-        DirectoryInfo DirectoryInfoVoditeli = new DirectoryInfo("Voditeli.bin");
+        DirectoryInfo DirectoryInfoVoditeli = new DirectoryInfo($"{currentDirectory}\\Voditeli.bin");
         /// <summary>
         /// путь к файлу в котором записана инфа о маршрутах
         /// </summary>
-        DirectoryInfo DirectoryInfoRoute = new DirectoryInfo("Route.bin");
-
+        DirectoryInfo DirectoryInfoRoute = new DirectoryInfo($"{currentDirectory}\\Route.bin");
         /// <summary>
         /// путь к файлу в котором записана инфа об Автобусах
         /// </summary>
+        DirectoryInfo DirectoryInfoBus = new DirectoryInfo($"{currentDirectory}\\Bus.bin");
         /// <summary>
-        DirectoryInfo DirectoryInfoBus = new DirectoryInfo("Bus.bin");
         /// метод для создания экземпляра класса полного имени
         /// </summary>
         /// <returns></returns>
