@@ -15,6 +15,7 @@ namespace Kursac
             try
             {
                 Console.Title="Автобусный парк/Сиглов Артём";
+                Console.ForegroundColor = ConsoleColor.Black;
                 Pattern pattern = new Pattern();
                 string log = "Artem";
                 string pas = "215";
@@ -33,13 +34,9 @@ namespace Kursac
                             {
                                 Console.Clear();
                                 Console.WriteLine("Главное меню:");
-                                Console.ForegroundColor = ConsoleColor.Green;
                                 Console.WriteLine("1. Добавить элемент");
-                                Console.ForegroundColor = ConsoleColor.Yellow;
                                 Console.WriteLine("2. Вывод информации");
-                                Console.ForegroundColor = ConsoleColor.Red;
                                 Console.WriteLine("3. Удалить элемент");
-                                Console.ForegroundColor = ConsoleColor.White;
                                 Console.WriteLine("0. Выход из программы");
                                 switch (Console.ReadKey(true).KeyChar)
                                 {
@@ -55,15 +52,13 @@ namespace Kursac
                                                 Console.WriteLine("2. Добавить автобус");
                                                 Console.WriteLine("3. Добавить маршрут");
                                                 Console.WriteLine("0. Выход в главное меню");
-
                                                 switch (Console.ReadKey(true).KeyChar)
                                                 {
-
                                                     case '1': Console.Clear(); pattern.InitVoditel(); break;
                                                     case '2': Console.Clear(); pattern.InitBus(); break;
                                                     case '3': Console.Clear(); pattern.InitRoute(); break;
                                                     case '0': Console.Clear(); flag = false; break;
-                                                    default:Console.WriteLine("Неверный выбор. Пожалуйста, выберите пункт меню от 0 до 3.");break;
+                                                    default:Console.WriteLine("Неверный выбор. Пожалуйста, выберите пункт меню от 0 до 3."); Console.WriteLine("Enter чтобы продолжить"); Console.ReadLine(); break;
                                                 }
                                             }
                                         }
@@ -87,18 +82,17 @@ namespace Kursac
                                                 Console.WriteLine("0. Выход в главное меню");
                                                 switch (Console.ReadKey(true).KeyChar)
                                                 {
-
-                                                    case '1': Console.Clear(); pattern.GetRouteVoditel(); Console.ReadLine(); break;
-                                                    case '2': Console.Clear(); pattern.GetRouteBus(); Console.ReadLine(); break;
-                                                    case '3': Console.Clear(); pattern.CalculateRouteLength(); Console.ReadLine(); break;
-                                                    case '4': Console.Clear(); Console.WriteLine(pattern.GetRouteMaxExp()); Console.ReadLine(); break;
-                                                    case '5': Console.Clear(); Console.WriteLine($"Общая протяженность маршрутов: {pattern.AllRouteLenght()} минут"); Console.ReadLine(); break;
-                                                    case '6': Console.Clear(); pattern.VoditelNoJobBusFailure(); Console.ReadLine(); break;
-                                                    case '7': Console.Clear(); pattern.OutPutVoditeli(); Console.ReadLine(); break;
-                                                    case '8': Console.Clear(); pattern.OutPutBus(); Console.ReadLine(); break;
-                                                    case '9': Console.Clear(); pattern.OutPutRoute(); Console.ReadLine(); break;
+                                                    case '1': Console.Clear(); pattern.GetRouteVoditel(); Console.WriteLine("Enter чтобы продолжить"); Console.ReadLine(); break;
+                                                    case '2': Console.Clear(); pattern.GetRouteBus(); Console.WriteLine("Enter чтобы продолжить"); Console.ReadLine(); break;
+                                                    case '3': Console.Clear(); pattern.CalculateRouteLength(); Console.WriteLine("Enter чтобы продолжить"); Console.ReadLine(); break;
+                                                    case '4': Console.Clear(); Console.WriteLine(pattern.GetRouteMaxExp()); Console.WriteLine("Enter чтобы продолжить"); Console.ReadLine(); break;
+                                                    case '5': Console.Clear(); Console.WriteLine($"Общая протяженность маршрутов: {pattern.AllRouteLenght()} минут"); Console.WriteLine("Enter чтобы продолжить"); Console.ReadLine(); break;
+                                                    case '6': Console.Clear(); pattern.VoditelNoJobBusFailure(); Console.WriteLine("Enter чтобы продолжить"); Console.ReadLine(); break;
+                                                    case '7': Console.Clear(); pattern.OutPutVoditeli(); Console.WriteLine("Enter чтобы продолжить"); Console.ReadLine(); break;
+                                                    case '8': Console.Clear(); pattern.OutPutBus(); Console.WriteLine("Enter чтобы продолжить"); Console.ReadLine(); break;
+                                                    case '9': Console.Clear(); pattern.OutPutRoute(); Console.WriteLine("Enter чтобы продолжить"); Console.ReadLine(); break;
                                                     case '0': Console.Clear(); flag = false; break;
-                                                    default:Console.WriteLine("Неверный выбор. Пожалуйста, выберите пункт меню от 0 до 9."); Console.ReadLine(); Console.Clear();break;
+                                                    default:Console.WriteLine("Неверный выбор. Пожалуйста, выберите пункт меню от 0 до 9."); Console.WriteLine("Enter чтобы продолжить"); Console.ReadLine(); Console.Clear();break;
                                                 }
                                             }
                                         }
