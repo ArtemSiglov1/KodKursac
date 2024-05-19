@@ -1,0 +1,14 @@
+C:\Users\Home\source\repos\Kursova_2\Kursova_2\bin\Debug\Kursova_2.exe.config
+C:\Users\Home\source\repos\Kursova_2\Kursova_2\bin\Debug\Kursova_2.exe
+C:\Users\Home\source\repos\Kursova_2\Kursova_2\bin\Debug\Kursova_2.pdb
+C:\Users\Home\source\repos\Kursova_2\Kursova_2\obj\Debug\Kursova_2.csproj.AssemblyReference.cache
+C:\Users\Home\source\repos\Kursova_2\Kursova_2\obj\Debug\Kursova_2.csproj.CoreCompileInputs.cache
+C:\Users\Home\source\repos\Kursova_2\Kursova_2\obj\Debug\Kursova_2.exe
+C:\Users\Home\source\repos\Kursova_2\Kursova_2\obj\Debug\Kursova_2.pdb
+E:\source\repos\Kursova_2\Kursova_2\bin\Debug\Kursova_2.exe.config
+E:\source\repos\Kursova_2\Kursova_2\bin\Debug\Kursova_2.exe
+E:\source\repos\Kursova_2\Kursova_2\bin\Debug\Kursova_2.pdb
+E:\source\repos\Kursova_2\Kursova_2\obj\Debug\Kursova_2.csproj.AssemblyReference.cache
+E:\source\repos\Kursova_2\Kursova_2\obj\Debug\Kursova_2.csproj.CoreCompileInputs.cache
+E:\source\repos\Kursova_2\Kursova_2\obj\Debug\Kursova_2.exe
+E:\source\repos\Kursova_2\Kursova_2\obj\Debug\Kursova_2.pdb
